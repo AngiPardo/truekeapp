@@ -32,7 +32,7 @@ class Formulario extends Component{
     render(){
         return(
             <div className="card w-50 m-auto bg-primary mt-4 mb-4 border-black">
-                <h1 className="m-auto text-white">Datos de tu tarjeta Pokemon</h1>
+                <h1 className="m-auto text-white">Edita los datos de tu tarjeta</h1>
                 <form className="card-body">
                     <div className="form-group">
                         <input type="text" placeholder="Nombre del Pokemon" name="nombre" onChange={this.cambio} className="form-control"/>   

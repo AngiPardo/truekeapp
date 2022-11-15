@@ -1,13 +1,13 @@
 import React, { Component } from "react";
 import Cargar from "./Cargar";
-//import App from "../App";
 import Crear_usuario from "./Crear_usuario";
 import Formulario from "./Formulario";
 import Inicio_sesion from "./Inicio_sesion";
+
 class Navegacion extends Component {
     render() {
         // Si está logueado se retorna cerrar sesión y publicar tarjeta, Si no está logueado se retorna iniciar sesión y crear usuario. Se utiliza 1==1 para aludir al caso en que no está logueado y lo contrario cuando si está logueado. Esto es temporal porque se redirecciona con info del backend
-        if(1==1) {
+        if(1==2) {
             return (
                 <div>
                     <div className="nav bg-dark d-flex justify-content-center">
@@ -89,15 +89,11 @@ class Navegacion extends Component {
     }
 
     filtrarTarjetas(e){
-        // let mostrar=this.state.Datos.map((dato)=>{
-        //     nombre = {dato.nombre};
-        //     if((e.target.value,e.target.name)==nombre)
-        // })
+        
         alert(e.target.value,e.target.name);
         this.setState({
             [e.target.name]:e.target.value
         })
-        // alert("Filtrando...")
     }
 }
 
