@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Datos from './Datos.json'
-import Articulos from './Articulos';
+import ArticulosSinLog from './ArticulosSinLog';
+import ArticulosLog from "./ArticulosLog";
 class Cargar extends Component {
     constructor() {
         super();
@@ -10,12 +11,18 @@ class Cargar extends Component {
 
     render() {
         let mostrar=this.state.Datos.map((dato)=>{
-            return(
-                <Articulos nombre={dato.nombre} descripcion={dato.descripcion} cantidad={dato.cantidad} imagen={dato.imagen} cartaACambio={dato.cartaACambio} usuario={dato.usuario} contacto={dato.contacto} />
-                
-                
-            );
+            // Si está logueado se retorna a ArticulosLog, Si no está logueado se retorna a ArticulosSinLog. Se utiliza 1==1 para aludir al caso en que no está logueado y lo contrario cuando si está logueado. Esto es temporal porque se redirecciona con info del backend
+            if(1==1) {
+                return(
+                    <ArticulosSinLog nombre={dato.nombre} descripcion={dato.descripcion} cantidad={dato.cantidad} imagen={dato.imagen} cartaACambio={dato.cartaACambio} usuario={dato.usuario} contacto={dato.contacto} />
+                );
+            } else {
+                return(
+                    <ArticulosLog nombre={dato.nombre} descripcion={dato.descripcion} cantidad={dato.cantidad} imagen={dato.imagen} cartaACambio={dato.cartaACambio} usuario={dato.usuario} contacto={dato.contacto} />
+                );
+            }
         })
+
         return (
             <div className="row">
                 {mostrar}
